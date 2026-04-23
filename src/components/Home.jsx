@@ -1,5 +1,5 @@
 import React from "react";
-import Aaron_Akinwande_CV from "../assets/Aaron_Akinwande_CV.pdf";
+import Aaron_Akinwande_CV from "../assets/Aaron-Akinwande-OPS_CV.pdf";
 import AaronDP from "../assets/AaronDP.jpg";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
