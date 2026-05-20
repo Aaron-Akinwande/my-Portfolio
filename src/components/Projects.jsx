@@ -9,15 +9,6 @@ import {
 const Projects = () => {
   const projects = [
     {
-      title: "Zenon",
-      description:
-        "A technology solutions platform that provides custom software development, expert consulting, and innovative digital solutions to help businesses adapt and grow.",
-      photo: "/zenon.png",
-      git: "https://github.com/zenon-systems/zenon-web-app",
-      url: "https://zenon.systems/",
-      tags: ["React", "API", "Responsive"],
-    },
-    {
       title: "Exodus Consulting Limited",
       description:
         "EXODUS is a strategy and people advisory firm operating at the intersection of strategy, systems, and execution.",
@@ -27,6 +18,24 @@ const Projects = () => {
       tags: ["Next.js", "Consulting", "SEO Optimized"],
     },
     {
+      title: "419Watch",
+      description:
+        "A full-stack credit card fraud detection system built with FastAPI and Next.js that uses a Random Forest machine learning model to analyse single and batch transactions with real-time fraud insights and dashboard analytics.",
+      photo: "/fraudwatch.png",
+      git: "https://github.com/Aaron-Akinwande/fraud-detection",
+      url: "https://419-watch.vercel.app/",
+      tags: ["Next.js", "FastAPI", "Machine Learning", "Fraud Detection"],
+    },
+    {
+      title: "Zenon",
+      description:
+        "A technology solutions platform that provides custom software development, expert consulting, and innovative digital solutions to help businesses adapt and grow.",
+      photo: "/zenon.png",
+      git: "https://github.com/zenon-systems/zenon-web-app",
+      url: "https://zenon.systems/",
+      tags: ["React", "API", "Responsive"],
+    },
+    {
       title: "EasySCH",
       description:
         "A school management website that allows administrators and teachers to perform their duties effectively.",
@@ -34,15 +43,6 @@ const Projects = () => {
       git: "https://github.com/Community-With-No-Name/sms",
       url: "https://www.easysch.com/best-college/login",
       tags: ["Dashboard", "Admin Panel", "Management"],
-    },
-    {
-      title: "Pub App",
-      description:
-        "A pub meal and drink app built with Next.js allows users to browse and order food and drinks from a local pub with real-time updates.",
-      photo: "/pub.jpg",
-      git: "https://github.com/Aaron-Akinwande/pub-meal-and-drinks-app",
-      url: "https://pub-meal-and-drinks-app.vercel.app/",
-      tags: ["Next.js", "E-commerce", "Real-time"],
     },
   ];
 
