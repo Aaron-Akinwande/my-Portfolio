@@ -44,6 +44,24 @@ const Projects = () => {
       url: "https://www.easysch.com/best-college/login",
       tags: ["Dashboard", "Admin Panel", "Management"],
     },
+    {
+      title: "NGBookings.com",
+      description:
+        "A multi-platform travel booking web app serving Guest, Travel Agent, Partner, and Admin users, built with Next.js for fast, SEO-optimized experiences with reservation management and analytics dashboards.",
+      photo: "/ngb.png",
+      git: "#",
+      url: "https://ngbookings.com/",
+      tags: ["Next.js", "Travel", "SEO Optimized", "Dashboard"],
+    },
+    {
+      title: "Herald",
+      description:
+        "A browser-based API testing tool inspired by Postman. Supports HTTP method selection, dynamic headers, JSON body editing, response viewing, request history, collections, and environment variable interpolation.",
+      photo: "/Herald.png",
+      git: "https://github.com/Aaron-Akinwande/Herald",
+      url: "https://herald-sage.vercel.app/",
+      tags: ["React", "API Testing", "Developer Tool"],
+    },
   ];
 
   return (
