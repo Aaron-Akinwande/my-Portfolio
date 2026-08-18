@@ -172,8 +172,8 @@ const Home = () => {
               {/* Image container */}
               <div className="relative z-10 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl shadow-primary/20">
                 <img
-                  src="https://res.cloudinary.com/lq1td7po/image/upload/Aaron-DP.jpg"
-                  alt="Aaron Display"
+                  src={AaronDP}
+                  alt="Aaron Display Picture"
                   className="w-full h-full object-cover"
                 />
                 {/* Gradient overlay */}
