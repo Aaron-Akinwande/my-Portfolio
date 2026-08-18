@@ -1,5 +1,4 @@
 import {
-  // Frontend Development
   FaReact,
   FaHtml5,
   FaCss3Alt,
@@ -8,7 +7,6 @@ import {
   FaGithub,
   FaNpm,
   FaFigma,
-  // Cloud & DevOps
   FaAws,
   FaDocker,
   FaLinux,
@@ -34,7 +32,6 @@ import {
   TbNetwork,
   TbShieldLock,
   TbChartBar,
-  TbDatabaseExport,
 } from "react-icons/tb";
 
 import { MdSecurity, MdDns, MdBackup } from "react-icons/md";
@@ -44,6 +41,7 @@ import { HiServer } from "react-icons/hi";
 const services = [
   {
     category: "Frontend Development",
+    track: "Frontend",
     items: [
       {
         id: 1,
@@ -57,7 +55,7 @@ const services = [
         name: "Next.js",
         description: "Server-side rendering and static site generation",
         Icon: SiNextdotjs,
-        color: "#000000",
+        color: "#f1f5f9",
       },
       {
         id: 3,
@@ -105,6 +103,7 @@ const services = [
   },
   {
     category: "Cloud & DevOps",
+    track: "Cloud",
     items: [
       {
         id: 9,
@@ -113,13 +112,13 @@ const services = [
         Icon: FaAws,
         color: "#FF9900",
       },
-      // {
-      //   id: 10,
-      //   name: "Docker",
-      //   description: "Containerization and microservices deployment",
-      //   Icon: FaDocker,
-      //   color: "#2496ED",
-      // },
+      {
+        id: 10,
+        name: "Docker",
+        description: "Containerization and microservices deployment",
+        Icon: FaDocker,
+        color: "#2496ED",
+      },
       {
         id: 11,
         name: "Linux",
@@ -127,19 +126,19 @@ const services = [
         Icon: FaLinux,
         color: "#FCC624",
       },
-      // {
-      //   id: 12,
-      //   name: "Kubernetes",
-      //   description: "Container orchestration and scaling",
-      //   Icon: SiKubernetes,
-      //   color: "#326CE5",
-      // },
+      {
+        id: 12,
+        name: "Kubernetes",
+        description: "Container orchestration and scaling",
+        Icon: SiKubernetes,
+        color: "#326CE5",
+      },
       {
         id: 13,
         name: "CI/CD",
         description: "Automated testing and deployment pipelines",
         Icon: TbCloudComputing,
-        color: "#6366F1",
+        color: "#2dd4bf",
       },
       {
         id: 14,
@@ -148,13 +147,13 @@ const services = [
         Icon: SiTerraform,
         color: "#7B42BC",
       },
-      // {
-      //   id: 15,
-      //   name: "Nginx",
-      //   description: "Web server and reverse proxy configuration",
-      //   Icon: SiNginx,
-      //   color: "#009639",
-      // },
+      {
+        id: 15,
+        name: "Nginx",
+        description: "Web server and reverse proxy configuration",
+        Icon: SiNginx,
+        color: "#009639",
+      },
       {
         id: 16,
         name: "Git",
@@ -164,69 +163,71 @@ const services = [
       },
     ],
   },
-  // {
-  //   category: "Network & Security",
-  //   items: [
-  //     {
-  //       id: 17,
-  //       name: "Network Config",
-  //       description: "Network architecture and configuration",
-  //       Icon: TbNetwork,
-  //       color: "#6366F1",
-  //     },
-  //     // {
-  //     //   id: 18,
-  //     //   name: "VPC Setup",
-  //     //   description: "Virtual private cloud design and implementation",
-  //     //   Icon: HiServer,
-  //     //   color: "#8B5CF6",
-  //     // },
-  //     {
-  //       id: 19,
-  //       name: "Load Balancing",
-  //       description: "Traffic distribution and high availability",
-  //       Icon: TbChartBar,
-  //       color: "#10B981",
-  //     },
-  //     // {
-  //     //   id: 20,
-  //     //   name: "SSL/TLS",
-  //     //   description: "Certificate management and secure connections",
-  //     //   Icon: TbShieldLock,
-  //     //   color: "#F59E0B",
-  //     // },
-  //     // {
-  //     //   id: 21,
-  //     //   name: "Firewall",
-  //     //   description: "Security groups and network access control",
-  //     //   Icon: MdSecurity,
-  //     //   color: "#EF4444",
-  //     // },
-  //     {
-  //       id: 22,
-  //       name: "DNS",
-  //       description: "Domain management and routing configuration",
-  //       Icon: MdDns,
-  //       color: "#3B82F6",
-  //     },
-  //     {
-  //       id: 23,
-  //       name: "Monitoring",
-  //       description: "CloudWatch, Prometheus, and alerting systems",
-  //       Icon: TbChartBar,
-  //       color: "#14B8A6",
-  //     },
-  //     // {
-  //     //   id: 24,
-  //     //   name: "Backup & Recovery",
-  //     //   description: "Data protection and disaster recovery strategies",
-  //     //   Icon: MdBackup,
-  //     //   color: "#A855F7",
-  //     // },
-  //   ],
-  // },
+  {
+    category: "Network & Security",
+    track: "Cloud",
+    items: [
+      {
+        id: 17,
+        name: "Network Config",
+        description: "Network architecture and configuration",
+        Icon: TbNetwork,
+        color: "#2dd4bf",
+      },
+      {
+        id: 18,
+        name: "VPC Setup",
+        description: "Virtual private cloud design and implementation",
+        Icon: HiServer,
+        color: "#5eead4",
+      },
+      {
+        id: 19,
+        name: "Load Balancing",
+        description: "Traffic distribution and high availability",
+        Icon: TbChartBar,
+        color: "#10B981",
+      },
+      {
+        id: 20,
+        name: "SSL/TLS",
+        description: "Certificate management and secure connections",
+        Icon: TbShieldLock,
+        color: "#f59e0b",
+      },
+      {
+        id: 21,
+        name: "Firewall",
+        description: "Security groups and network access control",
+        Icon: MdSecurity,
+        color: "#EF4444",
+      },
+      {
+        id: 22,
+        name: "DNS",
+        description: "Domain management and routing configuration",
+        Icon: MdDns,
+        color: "#3B82F6",
+      },
+      {
+        id: 23,
+        name: "Monitoring",
+        description: "CloudWatch, Prometheus, and alerting systems",
+        Icon: TbChartBar,
+        color: "#14B8A6",
+      },
+      {
+        id: 24,
+        name: "Backup & Recovery",
+        description: "Data protection and disaster recovery strategies",
+        Icon: MdBackup,
+        color: "#a78bfa",
+      },
+    ],
+  },
   {
     category: "Development Tools",
+    track: "Shared",
     items: [
       // {
       //   id: 25,
@@ -235,19 +236,19 @@ const services = [
       //   Icon: SiVisualstudiocode,
       //   color: "#007ACC",
       // },
-      // {
-      //   id: 26,
-      //   name: "Postman",
-      //   description: "API testing and development",
-      //   Icon: SiPostman,
-      //   color: "#FF6C37",
-      // },
+      {
+        id: 26,
+        name: "Postman",
+        description: "API testing and development",
+        Icon: SiPostman,
+        color: "#FF6C37",
+      },
       {
         id: 27,
         name: "GitHub",
         description: "Code repository and collaboration platform",
         Icon: FaGithub,
-        color: "#181717",
+        color: "#f1f5f9",
       },
       {
         id: 28,
@@ -270,13 +271,13 @@ const services = [
         Icon: FaNpm,
         color: "#CB3837",
       },
-      // {
-      //   id: 31,
-      //   name: "Webpack",
-      //   description: "Module bundling and optimization",
-      //   Icon: SiWebpack,
-      //   color: "#8DD6F9",
-      // },
+      {
+        id: 31,
+        name: "Webpack",
+        description: "Module bundling and optimization",
+        Icon: SiWebpack,
+        color: "#8DD6F9",
+      },
       {
         id: 32,
         name: "ESLint",
