@@ -9,6 +9,15 @@ import {
 const Projects = () => {
   const projects = [
     {
+      title: "NGBookings.com",
+      description:
+        "A multi-platform travel booking web app serving Guest, Travel Agent, Partner, and Admin users, built with Next.js for fast, SEO-optimized experiences with reservation management and analytics dashboards.",
+      photo: "/ngb.png",
+      git: "#",
+      url: "https://ngbookings.com/",
+      tags: ["Next.js", "Travel", "SEO Optimized", "Dashboard"],
+    },
+    {
       title: "Exodus Consulting Limited",
       description:
         "EXODUS is a strategy and people advisory firm operating at the intersection of strategy, systems, and execution.",
@@ -16,15 +25,6 @@ const Projects = () => {
       git: "https://github.com/Aaron-Akinwande/exodus-consulting",
       url: "https://www.exodusconsults.com/",
       tags: ["Next.js", "Consulting", "SEO Optimized"],
-    },
-    {
-      title: "419Watch",
-      description:
-        "A full-stack credit card fraud detection system built with FastAPI and Next.js that uses a Random Forest machine learning model to analyse single and batch transactions with real-time fraud insights and dashboard analytics.",
-      photo: "/fraudwatch.png",
-      git: "https://github.com/Aaron-Akinwande/fraud-detection",
-      url: "https://419-watch.vercel.app/",
-      tags: ["Next.js", "FastAPI", "Machine Learning", "Fraud Detection"],
     },
     {
       title: "Zenon",
@@ -36,22 +36,13 @@ const Projects = () => {
       tags: ["React", "API", "Responsive"],
     },
     {
-      title: "EasySCH",
+      title: "419Watch",
       description:
-        "A school management website that allows administrators and teachers to perform their duties effectively.",
-      photo: "/sms-dash.jpg",
-      git: "https://github.com/Community-With-No-Name/sms",
-      url: "https://www.easysch.com/best-college/login",
-      tags: ["Dashboard", "Admin Panel", "Management"],
-    },
-    {
-      title: "NGBookings.com",
-      description:
-        "A multi-platform travel booking web app serving Guest, Travel Agent, Partner, and Admin users, built with Next.js for fast, SEO-optimized experiences with reservation management and analytics dashboards.",
-      photo: "/ngb.png",
-      git: "#",
-      url: "https://ngbookings.com/",
-      tags: ["Next.js", "Travel", "SEO Optimized", "Dashboard"],
+        "A full-stack credit card fraud detection system built with FastAPI and Next.js that uses a Random Forest machine learning model to analyse single and batch transactions with real-time fraud insights and dashboard analytics.",
+      photo: "/fraudwatch.png",
+      git: "https://github.com/Aaron-Akinwande/fraud-detection",
+      url: "https://419-watch.vercel.app/",
+      tags: ["Next.js", "FastAPI", "Machine Learning", "Fraud Detection"],
     },
     {
       title: "Herald",
@@ -61,6 +52,15 @@ const Projects = () => {
       git: "https://github.com/Aaron-Akinwande/Herald",
       url: "https://herald-sage.vercel.app/",
       tags: ["React", "API Testing", "Developer Tool"],
+    },
+    {
+      title: "EasySCH",
+      description:
+        "A school management website that allows administrators and teachers to perform their duties effectively.",
+      photo: "/sms-dash.jpg",
+      git: "https://github.com/Community-With-No-Name/sms",
+      url: "https://www.easysch.com/best-college/login",
+      tags: ["Dashboard", "Admin Panel", "Management"],
     },
   ];
 

@@ -45,7 +45,7 @@ const Home = () => {
             >
               <SparklesIcon className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium text-primary">
-                Available for Freelance
+                Available for Full-time and Freelance
               </span>
             </motion.div>
 
@@ -117,7 +117,10 @@ const Home = () => {
                 </button>
               </Link>
 
-              <a href={Aaron_Akinwande_CV} download="Aaron_Akinwande_CV">
+              <a
+                href="https://drive.google.com/uc?export=download&id=1tFP4fV2pp4YyeZIrYgoBNPfOaFoWs9kE"
+                download="Aaron_Akinwande_CV"
+              >
                 <button className="group px-8 py-3.5 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 hover:border-primary/50 transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
                   <ArrowDownTrayIcon className="w-5 h-5" />
                   Download CV
@@ -169,7 +172,7 @@ const Home = () => {
               {/* Image container */}
               <div className="relative z-10 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl shadow-primary/20">
                 <img
-                  src={AaronDP}
+                  src="https://res.cloudinary.com/lq1td7po/image/upload/Aaron-DP.jpg"
                   alt="Aaron Display"
                   className="w-full h-full object-cover"
                 />
