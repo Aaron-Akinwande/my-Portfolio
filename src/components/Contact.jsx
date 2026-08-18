@@ -42,30 +42,27 @@ const Contact = () => {
       name: "Facebook",
       icon: facebook,
       url: "https://web.facebook.com/aaron.akinwande/",
-      color: "from-blue-600 to-blue-400",
     },
     {
       name: "Instagram",
       icon: instagram,
       url: "https://www.instagram.com/aaron_akinwande/",
-      color: "from-pink-600 to-purple-600",
     },
     {
       name: "Email",
       icon: email,
       url: "mailto:aaronakinwande@gmail.com",
-      color: "from-red-600 to-orange-500",
     },
   ];
 
   return (
     <div
-      className="md:px-10 px-7 py-20 bg-[#0a0a12] relative overflow-hidden"
+      className="md:px-10 px-7 py-20 bg-dark relative overflow-hidden"
       id="contact"
     >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
 
       <div className="relative z-10">
         {/* Section header */}
@@ -77,17 +74,17 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-600 rounded-full"></div>
+            <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
               Get In Touch
             </span>
-            <div className="w-12 h-1 bg-gradient-to-l from-primary to-purple-600 rounded-full"></div>
+            <div className="w-12 h-1 bg-gradient-to-l from-primary to-secondary rounded-full"></div>
           </div>
-          <h1 className="text-white font-bold text-4xl md:text-5xl mb-4">
+          <h1 className="text-light font-bold text-4xl md:text-5xl mb-4">
             Let's Work Together
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind? Let's create something amazing together
+          <p className="text-tertiary text-lg max-w-2xl mx-auto">
+            Have a project — or a role — in mind? Let's talk about it.
           </p>
         </motion.div>
 
@@ -101,19 +98,18 @@ const Contact = () => {
             transition={{ duration: 0.7 }}
           >
             {/* Contact card */}
-            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-gray-800 rounded-2xl p-8 mb-8">
-              <h2 className="text-white font-bold text-2xl mb-4">
+            <div className="bg-gradient-to-br from-dark-secondary to-dark-tertiary border border-border-slate rounded-2xl p-8 mb-8">
+              <h2 className="text-light font-bold text-2xl mb-4">
                 Connect with me
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                I'm always excited to discuss new projects, creative ideas, or
-                opportunities to be part of your vision. Let's make magic
-                together!
+              <p className="text-tertiary leading-relaxed mb-8">
+                I'm always excited to discuss new projects, frontend or cloud
+                opportunities, or ideas worth building. Let's talk.
               </p>
 
               {/* Social links */}
               <div className="space-y-4">
-                <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">
+                <p className="text-tertiary text-sm font-semibold uppercase tracking-wider mb-4">
                   Follow Me
                 </p>
                 <div className="flex gap-4">
@@ -123,7 +119,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
+                      className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-border-slate rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -135,9 +131,7 @@ const Contact = () => {
                         alt={social.name}
                         className="w-6 h-6 object-contain filter brightness-110 group-hover:brightness-125 transition-all"
                       />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}
-                      ></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
                     </motion.a>
                   ))}
 
@@ -146,7 +140,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/aaron-akinwande-ajose-720b18288"
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
+                    className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-border-slate rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -154,7 +148,7 @@ const Contact = () => {
                     whileHover={{ y: -4 }}
                   >
                     <FaLinkedin className="text-primary text-2xl group-hover:scale-110 transition-transform" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
                   </motion.a>
                 </div>
               </div>
@@ -168,18 +162,18 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl p-5">
-                <p className="text-gray-400 text-sm mb-1">Email</p>
+              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-5">
+                <p className="text-tertiary text-sm mb-1">Email</p>
                 <a
                   href="mailto:aaronakinwande@gmail.com"
-                  className="text-white font-semibold hover:text-primary transition-colors"
+                  className="text-light font-semibold hover:text-primary transition-colors"
                 >
                   aaronakinwande@gmail.com
                 </a>
               </div>
-              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl p-5">
-                <p className="text-gray-400 text-sm mb-1">Location</p>
-                <p className="text-white font-semibold">Lagos, Nigeria</p>
+              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-5">
+                <p className="text-tertiary text-sm mb-1">Location</p>
+                <p className="text-light font-semibold">Lagos, Nigeria</p>
               </div>
             </motion.div>
           </motion.div>
@@ -192,11 +186,11 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-gray-800 rounded-2xl p-8">
-              <h2 className="text-white font-bold text-2xl mb-2">
+            <div className="bg-gradient-to-br from-dark-secondary to-dark-tertiary border border-border-slate rounded-2xl p-8">
+              <h2 className="text-light font-bold text-2xl mb-2">
                 Send me a message
               </h2>
-              <p className="text-gray-400 mb-8">
+              <p className="text-tertiary mb-8">
                 Fill out the form below and I'll get back to you as soon as
                 possible
               </p>
@@ -205,7 +199,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-gray-400 text-sm font-medium mb-2"
+                    className="block text-tertiary text-sm font-medium mb-2"
                   >
                     Your Name
                   </label>
@@ -215,14 +209,14 @@ const Contact = () => {
                     id="name"
                     required
                     placeholder="John Doe"
-                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                    className="w-full bg-white/5 backdrop-blur-sm border border-border-slate rounded-xl py-3.5 px-4 text-light placeholder-tertiary/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-gray-400 text-sm font-medium mb-2"
+                    className="block text-tertiary text-sm font-medium mb-2"
                   >
                     Email Address
                   </label>
@@ -232,14 +226,14 @@ const Contact = () => {
                     id="email"
                     required
                     placeholder="john@example.com"
-                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                    className="w-full bg-white/5 backdrop-blur-sm border border-border-slate rounded-xl py-3.5 px-4 text-light placeholder-tertiary/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-gray-400 text-sm font-medium mb-2"
+                    className="block text-tertiary text-sm font-medium mb-2"
                   >
                     Message
                   </label>
@@ -249,13 +243,13 @@ const Contact = () => {
                     required
                     rows="5"
                     placeholder="Tell me about your project..."
-                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                    className="w-full bg-white/5 backdrop-blur-sm border border-border-slate rounded-xl py-3.5 px-4 text-light placeholder-tertiary/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="group w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300"
+                  className="group w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-dark rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/40 transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <span>Send Message</span>
                   <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -267,10 +261,10 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-6 flex items-center gap-3 bg-green-500/10 border border-green-500/30 rounded-xl p-4"
+                  className="mt-6 flex items-center gap-3 bg-secondary/10 border border-secondary/30 rounded-xl p-4"
                 >
-                  <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0" />
-                  <p className="text-green-500 font-medium">
+                  <CheckCircleIcon className="w-6 h-6 text-secondary flex-shrink-0" />
+                  <p className="text-secondary font-medium">
                     Message sent successfully! I'll get back to you soon.
                   </p>
                 </motion.div>
