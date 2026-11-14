@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { site } from "@/content/site";
+import { themeCanvas } from "@/lib/theme";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -9,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#0f1215",
-    theme_color: "#0f1215",
+    background_color: themeCanvas.dark,
+    theme_color: themeCanvas.dark,
     icons: [{ src: "/icon-512.png", sizes: "512x512", type: "image/png" }],
   };
 }

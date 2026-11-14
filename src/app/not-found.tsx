@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { Container } from "@/components/ui/Container";
+import { PageTransition } from "@/components/ui/PageTransition";
+import { button } from "@/components/ui/styles";
+
 export const metadata: Metadata = {
   title: "Page not found",
   robots: { index: false, follow: false },
@@ -8,24 +12,28 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-7 text-center">
-      <div>
-        <p className="text-primary font-semibold uppercase tracking-wider text-sm mb-4">
-          404
-        </p>
-        <h1 className="text-light font-bold text-4xl md:text-5xl mb-4">
-          Page not found
-        </h1>
-        <p className="text-tertiary mb-8">
-          That page doesn&apos;t exist or has moved.
-        </p>
-        <Link
-          href="/"
-          className="inline-flex px-8 py-3 bg-linear-to-r from-primary to-primary-hover text-dark rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300"
-        >
+    <PageTransition>
+      <section className="relative isolate">
+        <div
+          aria-hidden="true"
+          className="blueprint fade-edges absolute inset-0 -z-10"
+        />
+        <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <p className="font-display text-sm font-bold text-link">404</p>
+      <h1 className="mt-3 text-title font-bold text-ink">Page not found</h1>
+      <p className="mt-4 max-w-md text-lead text-muted">
+        That page doesn&apos;t exist or has moved.
+      </p>
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <Link href="/" className={button("primary")}>
           Back to home
         </Link>
+        <Link href="/projects" className={button("secondary")}>
+          See projects
+        </Link>
       </div>
-    </div>
+        </Container>
+      </section>
+    </PageTransition>
   );
 }

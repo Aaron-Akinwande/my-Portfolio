@@ -10,7 +10,7 @@ cp .env.example .env.local   # then fill in the values
 npm run dev
 ```
 
-`npm run build` creates the production build, `npm run start` serves it, `npm run lint` runs ESLint.
+`npm run build` creates the production build, `npm run start` serves it, `npm run lint` runs ESLint, and `npm run check:contrast` checks the colour tokens.
 
 ## Environment variables
 
@@ -24,6 +24,12 @@ npm run dev
 ## Where things live
 
 - `src/content/`: all copy and lists (site details, projects, experience, skills). Edit here to change what the site says.
-- `src/components/sections/`: the sections of the home page.
-- `src/app/projects/[slug]/`: one page per entry in `src/content/projects.ts`.
+- `src/app/`: the pages. Home, `projects/`, `projects/[slug]/` (one page per entry in `src/content/projects.ts`), `about/` and `contact/`.
+- `src/components/sections/`: the blocks that make up the home page.
+- `src/components/ui/`: shared pieces. `styles.ts` holds the button, card and chip recipes.
+- `src/app/globals.css`: colour tokens for the light and dark themes, the type scale and base styles.
 - `src/lib/seo.ts`: page metadata and structured data.
+
+## Colours
+
+Components use token names (`bg-canvas`, `text-ink`, `text-muted`, `bg-accent`, and so on), never raw colours. To change the palette, edit the two token blocks at the top of `src/app/globals.css`, then run `npm run check:contrast` to confirm every text and background pair still meets WCAG AA.

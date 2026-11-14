@@ -13,6 +13,21 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    company: "Stardust Creator Network",
+    role: "Frontend Web Developer",
+    location: "Lagos, Nigeria",
+    dates: "Sep 2026 – Present",
+    track: "Frontend",
+    bullets: [
+      "Delivered frontend features across SCN's creatorOS, brandOS and admin portal using Next.js, TypeScript, Tailwind CSS and React Query.",
+      "Built the creatorOS monetisation journey end to end: profiles with Meta OAuth verification, a rate card pricing calculator, campaign pitches, statements of work and PDF invoicing.",
+      "Engineered the brandOS campaign lifecycle from scratch, from AI-assisted brief creation and shortlist review to payment checkout, delivery review and final reporting.",
+      "Led frontend development of the admin portal, delivering briefs, pitch review, payment authorisation, creator operations and reporting modules and connecting them to live APIs.",
+      "Partnered with backend engineers to align the frontend with evolving APIs, building mock preview environments and a shared deal-stage function that kept campaign status consistent across every screen.",
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "React Query"],
+  },
+  {
     company: "Peerless",
     role: "Frontend Web Developer",
     location: "Lagos, Nigeria",

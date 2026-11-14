@@ -25,6 +25,10 @@ export type Project = {
   tags: string[];
   image?: StaticImageData;
   imageAlt?: string;
+  /** "contain" keeps a diagram whole on a white card; screenshots default to "cover". */
+  imageFit?: "cover" | "contain";
+  /** Shown in the featured grid on the home page. */
+  featured?: boolean;
   links: {
     live?: string;
     code?: string;
@@ -33,15 +37,16 @@ export type Project = {
 };
 
 export const projectTabs = [
-  { id: "All", label: "All", accent: "from-primary to-secondary" },
-  { id: "Frontend", label: "Frontend", accent: "from-primary to-primary-hover" },
-  { id: "Cloud", label: "Cloud", accent: "from-secondary to-secondary-hover" },
+  { id: "All", label: "All" },
+  { id: "Frontend", label: "Frontend" },
+  { id: "Cloud", label: "Cloud" },
 ];
 
 export const projects: Project[] = [
   // ---------- Cloud ----------
   {
     slug: "secure-web-app-deployment-aws",
+    featured: true,
     title: "Secure Web App Deployment on AWS",
     track: "Cloud",
     description:
@@ -56,6 +61,7 @@ export const projects: Project[] = [
     ],
     tags: ["AWS", "Ansible", "Bastion Host", "Load Balancer"],
     image: awsSecureDeployment,
+    imageFit: "contain",
     imageAlt:
       "Architecture diagram of a VPC with a bastion host and Application Load Balancer in public subnets and two NGINX web servers in private subnets across two availability zones",
     links: {
@@ -78,6 +84,7 @@ export const projects: Project[] = [
     ],
     tags: ["Terraform", "AWS", "VPC", "IaC"],
     image: terraformInfrastructure,
+    imageFit: "contain",
     imageAlt:
       "Architecture diagram of a VPC with an Application Load Balancer, bastion host and NAT gateways above two Apache web servers and a PostgreSQL database server",
     links: {
@@ -107,6 +114,7 @@ export const projects: Project[] = [
   // ---------- Frontend ----------
   {
     slug: "419watch-fraud-detection",
+    featured: true,
     title: "419Watch — Fraud Detection System",
     track: "Frontend",
     description:
@@ -128,6 +136,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ngbookings",
+    featured: true,
     title: "NGBookings.com",
     track: "Frontend",
     description:
@@ -190,6 +199,7 @@ export const projects: Project[] = [
   },
   {
     slug: "herald-api-testing-tool",
+    featured: true,
     title: "Herald — API Testing Tool",
     track: "Frontend",
     description:
@@ -233,3 +243,15 @@ export const projects: Project[] = [
 
 export const getProject = (slug: string) =>
   projects.find((project) => project.slug === slug);
+
+/** Home page order: the first one gets the large card. */
+const featuredOrder = [
+  "ngbookings",
+  "secure-web-app-deployment-aws",
+  "419watch-fraud-detection",
+  "herald-api-testing-tool",
+];
+
+export const featuredProjects = featuredOrder
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project): project is Project => Boolean(project?.featured));
