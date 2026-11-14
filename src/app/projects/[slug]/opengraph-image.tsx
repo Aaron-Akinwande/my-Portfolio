@@ -26,6 +26,5 @@ export default async function Image({
     title: project.title,
     subtitle: project.summary,
     tags: project.tags,
-    accent: project.track === "Cloud" ? "secondary" : "primary",
   });
 }

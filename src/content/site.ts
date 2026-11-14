@@ -21,6 +21,8 @@ export const site = {
     "Aaron Akinwande-Ajose is a front-end developer in Lagos, Nigeria building fast, accessible React and Next.js interfaces, with growing AWS and DevOps skills.",
   tagline:
     "I build fast, accessible interfaces — and I'm learning to run the infrastructure they live on.",
+  intro:
+    "I'm a front-end developer in Lagos, Nigeria with over 3 years of experience in React, Next.js and Tailwind CSS, and I'm learning to run the infrastructure my work lives on.",
   availability: "Available for Full-time and Freelance",
   email: "aaronakinwande@gmail.com",
   location: { city: "Lagos", country: "Nigeria", countryCode: "NG" },
@@ -49,17 +51,6 @@ export const site = {
   ],
 } as const;
 
-export const roles = [
-  { text: "Front-End Developer", track: "Frontend" },
-  { text: "Growing Cloud Engineer", track: "Cloud" },
-] as const;
-
-export const stats = [
-  { value: "20+", label: "Projects Done", longLabel: "Projects Completed" },
-  { value: "3+", label: "Years Experience", longLabel: "Years Experience" },
-  { value: "100%", label: "Client Satisfaction", longLabel: "Client Satisfaction" },
-] as const;
-
 export const socials: Social[] = [
   {
     id: "linkedin",
@@ -81,14 +72,9 @@ export const socials: Social[] = [
   { id: "email", name: "Email", url: "mailto:aaronakinwande@gmail.com" },
 ];
 
-/** Sections of the home page, in the order they appear. */
-export const sections = [
-  { id: "home", name: "Home" },
-  { id: "about", name: "About" },
-  { id: "services", name: "Services" },
-  { id: "experience", name: "Experience" },
-  { id: "projects", name: "Projects" },
-  { id: "contact", name: "Contact" },
+/** Top-level pages, in header order. */
+export const navigation = [
+  { href: "/projects", name: "Projects" },
+  { href: "/about", name: "About" },
+  { href: "/contact", name: "Contact" },
 ] as const;
-
-export type SectionId = (typeof sections)[number]["id"];

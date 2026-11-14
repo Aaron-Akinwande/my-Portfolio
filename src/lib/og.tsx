@@ -5,14 +5,15 @@ import { site } from "@/content/site";
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 
+/** Social cards always use the navy theme, whatever the visitor's setting. */
 const colors = {
-  dark: "#0f1215",
-  card: "#1a1f24",
-  border: "#334155",
-  light: "#f1f5f9",
-  muted: "#94a3b8",
-  primary: "#f59e0b",
-  secondary: "#2dd4bf",
+  navy: "#0b1f3a",
+  navyRaised: "#12305a",
+  navyLine: "#1b4078",
+  white: "#ffffff",
+  muted: "#a9bccf",
+  babyBlue: "#89cff0",
+  ink: "#071426",
 };
 
 type OgImage = {
@@ -20,19 +21,10 @@ type OgImage = {
   title: string;
   subtitle: string;
   tags?: string[];
-  accent?: "primary" | "secondary";
 };
 
 /** Shared 1200x630 social card, used by every opengraph-image route. */
-export function renderOgImage({
-  eyebrow,
-  title,
-  subtitle,
-  tags = [],
-  accent = "primary",
-}: OgImage) {
-  const accentColor = colors[accent];
-
+export function renderOgImage({ eyebrow, title, subtitle, tags = [] }: OgImage) {
   return new ImageResponse(
     (
       <div
@@ -43,9 +35,8 @@ export function renderOgImage({
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          backgroundColor: colors.dark,
-          backgroundImage: `radial-gradient(circle at 15% 20%, rgba(245,158,11,0.18), transparent 45%), radial-gradient(circle at 85% 85%, rgba(45,212,191,0.16), transparent 45%)`,
-          color: colors.light,
+          backgroundColor: colors.navy,
+          color: colors.white,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -57,8 +48,8 @@ export function renderOgImage({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundImage: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`,
-              color: colors.dark,
+              backgroundColor: colors.babyBlue,
+              color: colors.ink,
               fontSize: 36,
               fontWeight: 700,
             }}
@@ -76,9 +67,7 @@ export function renderOgImage({
               display: "flex",
               fontSize: 26,
               fontWeight: 600,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-              color: accentColor,
+              color: colors.babyBlue,
             }}
           >
             {eyebrow}
@@ -89,6 +78,7 @@ export function renderOgImage({
               fontSize: title.length > 34 ? 60 : 72,
               fontWeight: 700,
               lineHeight: 1.1,
+              letterSpacing: -1.5,
             }}
           >
             {title}
@@ -113,10 +103,10 @@ export function renderOgImage({
                 display: "flex",
                 padding: "10px 22px",
                 borderRadius: 999,
-                border: `2px solid ${colors.border}`,
-                backgroundColor: colors.card,
+                border: `2px solid ${colors.navyLine}`,
+                backgroundColor: colors.navyRaised,
                 fontSize: 24,
-                color: accentColor,
+                color: colors.babyBlue,
               }}
             >
               {tag}

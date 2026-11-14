@@ -1,53 +1,68 @@
-import { Reveal } from "@/components/ui/Reveal";
+import type { ReactNode } from "react";
 
 type SectionHeadingProps = {
   /** id for the <h2>, referenced by the section's aria-labelledby. */
   id: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   lead?: string;
-  align?: "left" | "center";
+  /** Optional link or button shown beside the heading on wide screens. */
+  action?: ReactNode;
   className?: string;
 };
 
+/** Heading block for a section inside a page. */
 export function SectionHeading({
   id,
   eyebrow,
   title,
   lead,
-  align = "left",
-  className = "mb-12",
+  action,
+  className = "mb-10",
 }: SectionHeadingProps) {
-  const centered = align === "center";
-
   return (
-    <Reveal className={`${className} ${centered ? "text-center" : ""}`}>
-      <div
-        className={`flex items-center gap-3 mb-4 ${centered ? "justify-center" : ""}`}
-      >
-        <div className="w-12 h-1 bg-linear-to-r from-primary to-secondary rounded-full" />
-        <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-          {eyebrow}
-        </span>
-        {centered && (
-          <div className="w-12 h-1 bg-linear-to-l from-primary to-secondary rounded-full" />
+    <div
+      className={`flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between ${className}`}
+    >
+      <div className="max-w-2xl">
+        {eyebrow && (
+          <p className="mb-3 flex items-center gap-2 text-sm font-medium text-muted">
+            <span aria-hidden="true" className="h-0.5 w-6 rounded-full bg-highlight" />
+            {eyebrow}
+          </p>
         )}
+        <h2 id={id} className="text-heading font-bold text-ink">
+          {title}
+        </h2>
+        {lead && <p className="mt-3 text-lead text-muted">{lead}</p>}
       </div>
-      <h2
-        id={id}
-        className={`text-light font-bold text-4xl md:text-5xl ${lead ? "mb-4" : ""}`}
-      >
-        {title}
-      </h2>
-      {lead && (
-        <p
-          className={`text-tertiary text-lg leading-relaxed ${
-            centered ? "max-w-2xl mx-auto" : "md:w-2/3"
-          }`}
-        >
-          {lead}
+      {action && <div className="shrink-0">{action}</div>}
+    </div>
+  );
+}
+
+type PageHeaderProps = {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  children?: ReactNode;
+};
+
+/** The <h1> block at the top of an inner page. */
+export function PageHeader({ eyebrow, title, lead, children }: PageHeaderProps) {
+  return (
+    <header className="animate-rise pt-14 pb-10 sm:pt-20 sm:pb-12">
+      {eyebrow && (
+        <p className="mb-4 flex items-center gap-2 text-sm font-medium text-muted">
+          <span aria-hidden="true" className="h-0.5 w-6 rounded-full bg-highlight" />
+          {eyebrow}
         </p>
       )}
-    </Reveal>
+      <h1 className="max-w-3xl text-title font-bold break-words text-ink">
+        {title}
+      </h1>
+      {lead && <p className="mt-5 max-w-2xl text-lead text-muted">{lead}</p>}
+      {children}
+    </header>
   );
 }

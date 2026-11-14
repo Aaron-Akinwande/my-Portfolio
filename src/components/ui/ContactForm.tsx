@@ -8,16 +8,21 @@ import {
 import { useState } from "react";
 import type { FormEvent } from "react";
 
+import { button } from "@/components/ui/styles";
+
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 type Status = "idle" | "sending" | "success" | "error";
 
-const fieldClass =
-  "w-full bg-white/5 backdrop-blur-xs border border-border-slate rounded-xl py-3.5 px-4 text-light placeholder:text-tertiary/60 focus:outline-hidden focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300";
+/** Give up after this long, so the form never sits on "Sending…". */
+const SEND_TIMEOUT_MS = 15000;
 
-const labelClass = "block text-tertiary text-sm font-medium mb-2";
+const field =
+  "w-full rounded-xl border border-line-strong bg-canvas px-4 py-3 text-ink placeholder:text-muted transition-colors duration-200 focus:border-focus";
+
+const label = "mb-2 block text-sm font-medium text-ink";
 
 export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
   const [status, setStatus] = useState<Status>("idle");
@@ -43,7 +48,7 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
     try {
       // Loaded on first submit, so the library is not part of the initial page load.
       const { default: emailjs } = await import("@emailjs/browser");
-      await emailjs.send(
+      const sent = emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
         {
@@ -53,6 +58,10 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
         },
         { publicKey: PUBLIC_KEY },
       );
+      const timedOut = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error("Timed out")), SEND_TIMEOUT_MS),
+      );
+      await Promise.race([sent, timedOut]);
       setStatus("success");
       form.reset();
     } catch (error) {
@@ -67,8 +76,8 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
     <>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="name" className={labelClass}>
-            Your Name
+          <label htmlFor="name" className={label}>
+            Your name
           </label>
           <input
             type="text"
@@ -76,14 +85,14 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
             id="name"
             required
             autoComplete="name"
-            placeholder="John Doe"
-            className={fieldClass}
+            placeholder="Ada Lovelace"
+            className={field}
           />
         </div>
 
         <div>
-          <label htmlFor="email" className={labelClass}>
-            Email Address
+          <label htmlFor="email" className={label}>
+            Email address
           </label>
           <input
             type="email"
@@ -91,22 +100,22 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
             id="email"
             required
             autoComplete="email"
-            placeholder="john@example.com"
-            className={fieldClass}
+            placeholder="ada@example.com"
+            className={field}
           />
         </div>
 
         <div>
-          <label htmlFor="message" className={labelClass}>
+          <label htmlFor="message" className={label}>
             Message
           </label>
           <textarea
             name="message"
             id="message"
             required
-            rows={5}
-            placeholder="Tell me about your project..."
-            className={`${fieldClass} resize-none`}
+            rows={6}
+            placeholder="Tell me about the project or role"
+            className={`${field} resize-y`}
           />
         </div>
 
@@ -125,34 +134,35 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
         <button
           type="submit"
           disabled={sending}
-          className="group w-full flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-primary to-secondary text-dark rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+          className={`${button("primary", "lg")} w-full`}
         >
-          <span>{sending ? "Sending..." : "Send Message"}</span>
-          <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          {sending ? "Sending…" : "Send message"}
+          <PaperAirplaneIcon aria-hidden="true" className="size-5" />
         </button>
       </form>
 
       <div aria-live="polite">
         {status === "success" && (
-          <div className="mt-6 flex items-center gap-3 bg-secondary/10 border border-secondary/30 rounded-xl p-4 animate-fade-up">
-            <CheckCircleIcon className="w-6 h-6 text-secondary shrink-0" />
-            <p className="text-secondary font-medium">
-              Message sent successfully! I&apos;ll get back to you soon.
-            </p>
-          </div>
+          <p className="mt-5 flex items-start gap-3 rounded-xl border border-success/30 bg-success-surface p-4 font-medium text-success">
+            <CheckCircleIcon aria-hidden="true" className="mt-0.5 size-5 shrink-0" />
+            Message sent. I&apos;ll get back to you soon.
+          </p>
         )}
 
         {status === "error" && (
-          <div className="mt-6 flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-xl p-4 animate-fade-up">
-            <ExclamationCircleIcon className="w-6 h-6 text-red-500 shrink-0" />
-            <p className="text-red-500 font-medium">
-              Failed to send message. Please try again, or email me at{" "}
+          <p className="mt-5 flex items-start gap-3 rounded-xl border border-danger/30 bg-danger-surface p-4 font-medium text-danger">
+            <ExclamationCircleIcon
+              aria-hidden="true"
+              className="mt-0.5 size-5 shrink-0"
+            />
+            <span>
+              That didn&apos;t send. Try again, or email me at{" "}
               <a href={`mailto:${fallbackEmail}`} className="underline">
                 {fallbackEmail}
               </a>
               .
-            </p>
-          </div>
+            </span>
+          </p>
         )}
       </div>
     </>
